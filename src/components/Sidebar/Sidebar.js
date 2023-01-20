@@ -8,7 +8,6 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        bgcolor: "#f1f1f1",
         borderRadius: "0px 15px 15px 0px",
         width: 300,
         minWidth: 250,
@@ -35,13 +34,13 @@ const Sidebar = () => {
       </Box>
 
       <Box className="profile">
-        <Typography className="user-name">Name</Typography>
+        <Typography className="user-name">Hrishabh Jain</Typography>
         <Button
           className="logout-btn"
           sx={{ bgcolor: "#1f75ff" }}
           variant="contained"
         >
-          Log Out
+          Sign Out
         </Button>
       </Box>
     </Box>

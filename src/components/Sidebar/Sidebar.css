@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 30px 0;
+  box-shadow: #00000034 0px 20px 25px -5px;
+  background-color: #f1f1f19d;
 }
 
 .menu {
@@ -66,10 +68,14 @@
 }
 
 .user-name {
+  font-family: "Mukta", sans-serif !important;
   color: #5d5d5d;
 }
 
 .logout-btn {
   height: 35px;
-  width: 100px;
+  width: 110px;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  font-family: "Public Sans", sans-serif !important;
 }

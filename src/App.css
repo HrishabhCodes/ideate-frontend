@@ -11,9 +11,26 @@ html {
 }
 
 body {
-  background-color: #f0f8ff72;
+  background-color: #f4f8fd;
 }
 
 .app {
   display: flex;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

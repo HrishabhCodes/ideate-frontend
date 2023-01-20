@@ -1,0 +1,33 @@
+.search {
+  width: 100%;
+  padding: 25px 60px;
+  border-bottom: 1px solid #8989893d;
+}
+
+.search-bar {
+  border: 1px solid #8989893d;
+  border-radius: 10px;
+  height: 45px;
+  display: flex;
+  background-color: #f4f4f476;
+}
+
+.search-icon {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1f75ff;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: calc(100% - 30px);
+  border-radius: 0 10px 10px 0;
+  background-color: transparent;
+  font-family: "Mukta", sans-serif;
+  font-size: 15px;
+  color: #4f4f4f;
+}
