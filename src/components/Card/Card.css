@@ -11,10 +11,6 @@
   transition: 200ms;
 }
 
-.card:active {
-  background-color: #f3f1f1;
-}
-
 .card:hover {
   transform: scale(1.01);
 }
@@ -23,6 +19,11 @@
   width: calc(100% - 75px);
   padding: 10px 25px;
   overflow: hidden;
+  transition: 200ms;
+}
+
+.card-content:active {
+  background-color: #f3f1f1;
 }
 
 .title {
@@ -32,7 +33,7 @@
   color: #3b3b3b;
 }
 
-.date {
+.author {
   font-family: "Inter", sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -67,15 +68,19 @@
 }
 
 .likes .text {
-  color: green;
+  color: #1f75ff;
 }
 
 .dislikes .text {
-  color: rgb(156, 0, 0);
+  color: #9c0000;
 }
 
 .like {
-  color: #70bb70;
+  color: #5c9aff;
+}
+
+.dislike {
+  color: #d53737;
 }
 
 .likes,
@@ -93,7 +98,7 @@
 }
 
 .likes:hover {
-  background-color: #e5ffe5;
+  background-color: #e1ecff;
 }
 
 .dislikes:hover {

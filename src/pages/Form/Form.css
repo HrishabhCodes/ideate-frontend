@@ -1,5 +1,6 @@
-.home-page {
+.form-page {
   width: 100%;
+  padding: 25px 50px;
   height: 100vh;
   overflow: auto;
 }

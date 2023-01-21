@@ -6,6 +6,7 @@
   padding: 30px 0;
   box-shadow: #00000034 0px 20px 25px -5px;
   background-color: #f1f1f19d;
+  height: 100vh;
 }
 
 .menu {
@@ -72,7 +73,8 @@
   color: #5d5d5d;
 }
 
-.logout-btn {
+.logout-btn,
+.submit-btn {
   height: 35px;
   width: 110px;
   font-size: 12px !important;

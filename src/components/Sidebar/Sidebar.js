@@ -11,7 +11,6 @@ const Sidebar = () => {
         borderRadius: "0px 15px 15px 0px",
         width: 300,
         minWidth: 250,
-        height: "100vh",
       }}
       className="sidebar"
     >

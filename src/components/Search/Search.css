@@ -1,15 +1,15 @@
 .search {
   width: 100%;
-  padding: 25px 60px;
+  padding: 25px 50px;
   border-bottom: 1px solid #8989893d;
 }
 
 .search-bar {
-  border: 1px solid #8989893d;
+  border: 1px solid #8989896a;
   border-radius: 10px;
   height: 45px;
   display: flex;
-  background-color: #f4f4f476;
+  background-color: #ffffffe5;
 }
 
 .search-icon {

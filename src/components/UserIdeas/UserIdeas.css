@@ -1,0 +1,69 @@
+.container {
+  margin-top: 40px;
+  width: 100%;
+  padding: 1px 40px;
+  border-radius: 10px;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Mukta", sans-serif;
+  border-bottom: 1px solid #b8b8b88c;
+}
+
+.idea-card {
+  margin: 20px 0;
+  height: 75px;
+  padding-left: 20px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: #0000001a 0px 20px 20px -10px, #0000000a 0px 10px 10px -5px;
+  border: 1px solid #c0c0c068;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 200ms;
+}
+
+.options {
+  width: 150px;
+  height: 100%;
+  background-color: #f4f8fd;
+  border-left: 1px solid #8080804d;
+  border-radius: 0 10px 10px 0;
+  color: #9b9b9b;
+  display: flex;
+  cursor: pointer;
+}
+
+.edit,
+.delete {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit i,
+.delete i {
+  font-size: 25px;
+  transition: 300ms;
+}
+
+.edit i {
+  color: #5d99f9;
+}
+
+.delete i {
+  color: #df6a6a;
+}
+
+.delete i:hover {
+  color: #d53737;
+}
+
+.edit i:hover {
+  color: #1f75ff;
+}
