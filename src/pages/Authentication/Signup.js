@@ -1,29 +1,25 @@
+import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-// import styles from "../../styles/Signup.module.css";
+import { Link, useNavigate } from "react-router-dom";
+
+const BASE_URL = "http://localhost:8080";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [cred, setCred] = useState({});
+
   const authHandler = async (e) => {
     e.preventDefault();
-    console.log(cred);
 
     try {
-      const response = await fetch("http://localhost:8080/user/signup", {
-        method: "POSt",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: cred.username,
-          email: cred.email,
-          password: cred.password,
-        }),
+      await axios.put(`${BASE_URL}/auth/signup`, {
+        name: cred.username,
+        email: cred.email,
+        password: cred.password,
       });
 
-      const responseData = await response.json();
-      console.log(responseData);
+      return navigate("/auth/login");
     } catch (error) {
       console.log(error);
     }

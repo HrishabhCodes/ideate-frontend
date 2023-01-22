@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import axios from "axios";
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ContextData from "../../contexts/contextData";
@@ -9,32 +10,36 @@ const Login = () => {
   const [cred, setCred] = useState({});
   const dataCtx = useContext(ContextData);
 
+  const BASE_URL = "http://localhost:8080";
+
   const authHandler = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8080/user/login", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const response = await axios.post(
+        `${BASE_URL}/auth/login`,
+        {
           email: cred.email,
           password: cred.password,
-        }),
-      });
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error(response.message);
+      const { token, userId } = response.data;
+
+      if (userId) {
+        localStorage.setItem("token", token);
+        localStorage.setItem("userId", userId);
+        dataCtx.setUserId(userId);
+        dataCtx.setIsAuth(true);
       }
-
-      const resData = await response.json();
-      localStorage.setItem("token", resData.token);
-      localStorage.setItem("userId", resData.userId);
-      dataCtx.setUserId(resData.userId);
     } catch (error) {
-      console.log(error);
+      alert("Please check your username and password");
     }
   };
 

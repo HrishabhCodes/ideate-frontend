@@ -1,10 +1,20 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import ContextData from "../../contexts/contextData";
 import "./Sidebar.css";
 
 const Sidebar = () => {
+  const { setIsAuth } = useContext(ContextData);
+
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("userId");
+    localStorage.removeItem("token");
+    setIsAuth(false);
+  };
+
   return (
     <Box
       sx={{
@@ -34,6 +44,7 @@ const Sidebar = () => {
       <Box className="profile">
         <Typography className="user-name">Hrishabh Jain</Typography>
         <Button
+          onClick={logout}
           className="logout-btn"
           sx={{ bgcolor: "#1f75ff" }}
           variant="contained"
