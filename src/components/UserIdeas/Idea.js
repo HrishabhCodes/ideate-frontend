@@ -10,10 +10,10 @@ const Idea = () => {
       </Box>
       <Box className="options">
         <Box className="edit">
-          <i class="fa-solid fa-pen-to-square"></i>
+          <i className="fa-solid fa-pen-to-square"></i>
         </Box>
         <Box className="delete">
-          <i class="fa-solid fa-trash"></i>
+          <i className="fa-solid fa-trash"></i>
         </Box>
       </Box>
     </Box>

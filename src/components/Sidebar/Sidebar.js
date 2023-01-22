@@ -15,8 +15,7 @@ const Sidebar = () => {
       className="sidebar"
     >
       <Box className="menu">
-        <img className="logo" src="logo.png" alt="ideate" />
-
+        <img className="ideate-logo" src="logo.png" alt="ideate" />
         <NavLink to="" className="item home">
           <Box className="icon">
             <i className="fa-solid fa-house"></i>

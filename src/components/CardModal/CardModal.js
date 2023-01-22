@@ -10,9 +10,9 @@ const style = {
   bgcolor: "background.paper",
 };
 
-const tags = ["Technology", "ML", "Startups", "Personal Finance", "Business"];
+const CardModal = ({ open, handleClose, content, title, tags, createdAt }) => {
+  let date = new Date(createdAt);
 
-const CardModal = ({ open, handleClose, idea }) => {
   return (
     <Modal
       open={open}
@@ -21,10 +21,10 @@ const CardModal = ({ open, handleClose, idea }) => {
       aria-describedby="modal-modal-description"
     >
       <Box sx={style} className="modal">
-        <Box className="title modal-title">Doodlesy Project</Box>
+        <Box className="title modal-title">{title}</Box>
         <Box className="author info">
           Hrishabh Jain<span style={{ color: "grey" }}> / </span>
-          23-12-2023
+          {date.toLocaleDateString().split("/").join("-")}
         </Box>
         <Box className="tags">
           {tags.map((tag, index) => {
@@ -35,7 +35,7 @@ const CardModal = ({ open, handleClose, idea }) => {
             );
           })}
         </Box>
-        <Box className="idea-container">{idea}</Box>
+        <Box className="idea-container">{content}</Box>
       </Box>
     </Modal>
   );

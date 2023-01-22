@@ -93,10 +93,6 @@
   align-items: center;
 }
 
-.likes {
-  border-bottom: 1px solid #8080804d;
-}
-
 .likes:hover {
   background-color: #e1ecff;
 }

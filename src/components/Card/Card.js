@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { Box } from "@mui/system";
-import "./Card.css";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import CardModal from "../CardModal/CardModal";
+import "./Card.css";
 
-const idea =
-  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi iusto assumenda excepturi ut nesciunt dolorum doloribus voluptatem praesentium, voluptates eligendi praesentium, voluptates eligendi praesentium, voluptates eligendi Lorem ipsum dolor sit, ametconsectetur adipisicing elit. Nisi iusto assumenda excepturi utnesciunt dolorum doloribus voluptatem praesentium, voluptates eligendipraesentium, voluptates eligendi praesentium, voluptates eligendiLorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi iustoassumenda excepturi ut nesciunt dolorum doloribus voluptatempraesentium, voluptates eligendi praesentium, voluptates eligendipraesentium, voluptates eligendi";
-
-const Card = () => {
+const Card = ({ title, content, likes, dislikes, tags, createdAt }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -15,19 +11,26 @@ const Card = () => {
   return (
     <Box className="card">
       <Box onClick={handleOpen} className="card-content">
-        <Box className="title">Doodlesy Project</Box>
+        <Box className="title">{title}</Box>
         <Box className="author">Hrishabh Jain</Box>
-        <Box className="idea">{idea}</Box>
+        <Box className="idea">{content}</Box>
       </Box>
-      <CardModal idea={idea} open={open} handleClose={handleClose} />
+      <CardModal
+        title={title}
+        content={content}
+        tags={tags}
+        createdAt={createdAt}
+        open={open}
+        handleClose={handleClose}
+      />
       <Box className="votes">
         <Box className="likes">
           <i className="fa-solid fa-thumbs-up like"></i>
-          <Typography className="text">14</Typography>
+          <Typography className="text">{likes}</Typography>
         </Box>
         <Box className="dislikes">
           <i className="fa-solid fa-thumbs-down dislike"></i>
-          <Typography className="text">0</Typography>
+          <Typography className="text">{dislikes}</Typography>
         </Box>
       </Box>
     </Box>

@@ -35,7 +35,6 @@
   border-radius: 0 10px 10px 0;
   color: #9b9b9b;
   display: flex;
-  cursor: pointer;
 }
 
 .edit,
@@ -50,6 +49,7 @@
 .delete i {
   font-size: 25px;
   transition: 300ms;
+  cursor: pointer;
 }
 
 .edit i {

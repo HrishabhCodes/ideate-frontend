@@ -1,15 +1,24 @@
 import React from "react";
 import { Box } from "@mui/system";
-import "./List.css";
 import Card from "../Card/Card";
+import "./List.css";
 
-const List = () => {
+const List = ({ ideas }) => {
   return (
     <Box className="list-container">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {ideas.map((idea, index) => {
+        return (
+          <Card
+            title={idea.title}
+            content={idea.content}
+            likes={idea.upvotes}
+            dislikes={idea.downvotes}
+            tags={idea.tags}
+            createdAt={idea.createdAt}
+            key={index + 1}
+          />
+        );
+      })}
     </Box>
   );
 };
