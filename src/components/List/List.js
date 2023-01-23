@@ -4,7 +4,15 @@ import Card from "../Card/Card";
 import CardSkeleton from "../Card/CardSkeleton";
 import "./List.css";
 
-const List = ({ ideas, isLoading, page, setPage, totalIdeas, user }) => {
+const List = ({
+  ideas,
+  isLoading,
+  page,
+  setPage,
+  totalIdeas,
+  user,
+  fetchAllIdeas,
+}) => {
   const handleScroll = (e) => {
     try {
       const element = e.target;
@@ -23,12 +31,15 @@ const List = ({ ideas, isLoading, page, setPage, totalIdeas, user }) => {
       {ideas.map((idea, index) => {
         return (
           <Card
+            id={idea._id}
             title={idea.title}
             content={idea.content}
             likes={idea.upvotes}
             dislikes={idea.downvotes}
             tags={idea.tags}
+            author={idea.author}
             createdAt={idea.createdAt}
+            fetchAllIdeas={fetchAllIdeas}
             key={index + 1}
             user={user}
           />

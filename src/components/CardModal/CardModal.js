@@ -10,7 +10,15 @@ const style = {
   bgcolor: "background.paper",
 };
 
-const CardModal = ({ open, handleClose, content, title, tags, createdAt }) => {
+const CardModal = ({
+  open,
+  handleClose,
+  content,
+  author,
+  title,
+  tags,
+  createdAt,
+}) => {
   let date = new Date(createdAt);
 
   return (
@@ -23,7 +31,8 @@ const CardModal = ({ open, handleClose, content, title, tags, createdAt }) => {
       <Box sx={style} className="modal">
         <Box className="title modal-title">{title}</Box>
         <Box className="author info">
-          Hrishabh Jain<span style={{ color: "grey" }}> / </span>
+          {author.name}
+          <span style={{ color: "grey" }}> / </span>
           {date.toLocaleDateString().split("/").join("-")}
         </Box>
         <Box className="tags">

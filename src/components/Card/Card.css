@@ -106,7 +106,9 @@
 }
 
 .likes,
-.dislikes {
+.dislikes,
+.disliked,
+.liked {
   width: 50%;
   height: 100%;
   display: flex;
@@ -115,11 +117,13 @@
   align-items: center;
 }
 
-.likes:hover {
+.likes:hover,
+.liked:hover {
   background-color: #e1ecff;
 }
 
-.dislikes:hover {
+.dislikes:hover,
+.disliked:hover {
   background-color: #ffeeee;
 }
 

@@ -12,7 +12,8 @@ const Home = ({ user }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [allIdeas, setAllIdeas] = useState([]);
-  // const [filtered, setFiltered] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,14 +31,21 @@ const Home = ({ user }) => {
 
   return (
     <Box className="home-page">
-      <Search />
+      <Search
+        allIdeas={allIdeas}
+        filtered={filtered}
+        setFiltered={setFiltered}
+        search={search}
+        setSearch={setSearch}
+      />
       <List
         page={page}
         setPage={setPage}
         totalIdeas={totalIdeas}
+        fetchAllIdeas={fetchAllIdeas}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
-        ideas={allIdeas}
+        ideas={filtered.length > 0 ? filtered : allIdeas}
         user={user}
       />
     </Box>

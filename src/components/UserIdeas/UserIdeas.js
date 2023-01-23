@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Box } from "@mui/material";
 import Idea from "./Idea";
 import "./UserIdeas.css";
-import axios from "axios";
 
-const BASE_URL = "http://localhost:8080";
-
-const UserIdeas = () => {
-  const [userIdeas, setUserIdeas] = useState([]);
-
-  const fetchUserIdeas = async () => {
-    const response = await axios.get(
-      `${BASE_URL}/idea/user/${localStorage.getItem("userId")}`
-    );
-
-    const { ideas } = response.data;
-    // console.log(response);
-    setUserIdeas(ideas);
-  };
-
+const UserIdeas = ({ fetchUserIdeas, userIdeas }) => {
   useEffect(() => {
     fetchUserIdeas();
   }, []);
@@ -27,9 +12,16 @@ const UserIdeas = () => {
     <Box className="container">
       <Box className="header">Your Ideas</Box>
       <Box className="ideas-list">
-        {userIdeas ? (
+        {userIdeas.length > 0 ? (
           userIdeas.map((idea, index) => {
-            return <Idea key={index} title={idea.title} />;
+            return (
+              <Idea
+                fetchUserIdeas={fetchUserIdeas}
+                key={index}
+                title={idea.title}
+                _id={idea._id}
+              />
+            );
           })
         ) : (
           <Box className="no-idea">You haven't posted any idea yet!</Box>

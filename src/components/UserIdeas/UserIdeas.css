@@ -27,7 +27,7 @@
 }
 
 .options {
-  width: 100px;
+  width: 50px;
   height: 100%;
   background-color: #f4f8fd;
   border-left: 1px solid #8080804d;
@@ -36,23 +36,17 @@
   display: flex;
 }
 
-.edit,
 .delete {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.edit i,
 .delete i {
   font-size: 25px;
   transition: 300ms;
   cursor: pointer;
-}
-
-.edit i {
-  color: #5d99f9;
 }
 
 .delete i {
@@ -61,10 +55,6 @@
 
 .delete i:hover {
   color: #d53737;
-}
-
-.edit i:hover {
-  color: #1f75ff;
 }
 
 .no-idea {

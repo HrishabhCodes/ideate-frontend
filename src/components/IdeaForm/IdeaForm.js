@@ -1,32 +1,43 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Box, Button } from "@mui/material";
 import axios from "axios";
+import ContextData from "../../contexts/contextData";
 import "./IdeaForm.css";
 
 const BASE_URL = "http://localhost:8080";
 
-const IdeaForm = () => {
+const IdeaForm = ({ fetchUserIdeas }) => {
+  const { userId } = useContext(ContextData);
   const [mode, setMode] = useState("add");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await axios.get(`${BASE_URL}/auth/${userId}`);
+    const userData = response.data;
+
     const data = {
       title: title,
       content: content,
       tags: tags.split(",").map((tag) => {
         return tag.trim();
       }),
-      userId: localStorage.getItem("userId"),
+      user: {
+        name: userData.user[0].name,
+        id: userData.user[0]._id,
+      },
     };
+
     if (mode === "add") {
-      axios
+      await axios
         .post(`${BASE_URL}/idea/create`, data)
         .then((result) => console.log(result))
         .catch((e) => console.log(e));
     }
-
+    fetchUserIdeas();
     setTitle("");
     setTags("");
     setContent("");
@@ -34,7 +45,7 @@ const IdeaForm = () => {
 
   return (
     <Box className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <Box className="wrapper">
           <Box className="title-container">
             <label className="title-label" htmlFor="title">
@@ -42,6 +53,7 @@ const IdeaForm = () => {
             </label>
             <br />
             <input
+              required
               placeholder="Title"
               name="title"
               type="text"
@@ -60,7 +72,7 @@ const IdeaForm = () => {
               type="text"
               value={tags}
               onChange={(e) => setTags(e.target.value)}
-              placeholder="Comma separated tags (Max 5)"
+              placeholder="Comma separated tags"
               className="tags-input"
             />
           </Box>
@@ -72,6 +84,7 @@ const IdeaForm = () => {
           <br />
           <textarea
             name="content"
+            required
             className="content-input"
             placeholder="Write your idea here..."
             value={content}
@@ -82,7 +95,7 @@ const IdeaForm = () => {
           className="submit-btn"
           sx={{ bgcolor: "#1f75ff" }}
           variant="contained"
-          onClick={handleSubmit}
+          type="submit"
         >
           Add
         </Button>
