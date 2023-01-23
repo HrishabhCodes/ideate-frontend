@@ -18,7 +18,7 @@ const BASE_URL = "http://localhost:8080";
 
 function App() {
   const { userId } = useContext(ContextData);
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState({});
   const [show, setShow] = useState(true);
 
   useEffect(() => {

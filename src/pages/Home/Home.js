@@ -15,18 +15,17 @@ const Home = ({ user }) => {
   // const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    // setTimeout(() => {
-    fetchAllIdeas();
-    // }, 1000);
+    setTimeout(() => {
+      fetchAllIdeas();
+    }, 500);
   }, [page]);
 
   const fetchAllIdeas = async () => {
     const res = await axios.get(`${BASE_URL}/idea/all?page=${page}`);
     const data = res.data;
     totalIdeas = data.totalIdeas;
-    setAllIdeas((prev) => [...prev, ...data.ideas]);
     setIsLoading(false);
-    console.log(page * 7, totalIdeas);
+    setAllIdeas((prev) => [...prev, ...data.ideas]);
   };
 
   return (
@@ -39,6 +38,7 @@ const Home = ({ user }) => {
         isLoading={isLoading}
         setIsLoading={setIsLoading}
         ideas={allIdeas}
+        user={user}
       />
     </Box>
   );

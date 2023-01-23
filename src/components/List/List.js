@@ -4,14 +4,11 @@ import Card from "../Card/Card";
 import CardSkeleton from "../Card/CardSkeleton";
 import "./List.css";
 
-const List = ({ ideas, isLoading, page, setPage, totalIdeas }) => {
+const List = ({ ideas, isLoading, page, setPage, totalIdeas, user }) => {
   const handleScroll = (e) => {
     try {
       const element = e.target;
-      if (
-        element.scrollHeight - element.scrollTop - 100 <=
-        element.clientHeight
-      ) {
+      if (element.scrollHeight - element.scrollTop === element.clientHeight) {
         if (totalIdeas !== ideas.length) {
           setPage((prev) => prev + 1);
         }
@@ -33,10 +30,11 @@ const List = ({ ideas, isLoading, page, setPage, totalIdeas }) => {
             tags={idea.tags}
             createdAt={idea.createdAt}
             key={index + 1}
+            user={user}
           />
         );
       })}
-      {isLoading && page * 7 < totalIdeas && <CardSkeleton cards={5} />}
+      {isLoading && <CardSkeleton cards={7} />}
       {page * 7 < totalIdeas ? <CardSkeleton cards={1} /> : null}
     </Box>
   );

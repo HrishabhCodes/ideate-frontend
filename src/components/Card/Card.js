@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import CardModal from "../CardModal/CardModal";
 import "./Card.css";
 
-const Card = ({ title, content, likes, dislikes, tags, createdAt }) => {
+const Card = ({ title, content, likes, dislikes, tags, createdAt, user }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
