@@ -18,6 +18,7 @@ const IdeaForm = () => {
       tags: tags.split(",").map((tag) => {
         return tag.trim();
       }),
+      userId: localStorage.getItem("userId"),
     };
     if (mode === "add") {
       axios

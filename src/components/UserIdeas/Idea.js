@@ -2,11 +2,11 @@ import { Box } from "@mui/material";
 import React from "react";
 import "./UserIdeas.css";
 
-const Idea = () => {
+const Idea = ({ title }) => {
   return (
     <Box className="idea-card">
       <Box className="form-card">
-        <Box className="title">Doodlesy Project</Box>
+        <Box className="title">{title}</Box>
       </Box>
       <Box className="options">
         <Box className="edit">

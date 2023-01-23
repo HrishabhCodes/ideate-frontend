@@ -1,13 +1,14 @@
 import { Box } from "@mui/material";
 import axios from "axios";
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ContextData from "../../contexts/contextData";
 import "./Login.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [cred, setCred] = useState({});
+  const navigate = useNavigate();
   const dataCtx = useContext(ContextData);
 
   const BASE_URL = "http://localhost:8080";
@@ -36,7 +37,7 @@ const Login = () => {
         localStorage.setItem("token", token);
         localStorage.setItem("userId", userId);
         dataCtx.setUserId(userId);
-        dataCtx.setIsAuth(true);
+        navigate("/");
       }
     } catch (error) {
       alert("Please check your username and password");

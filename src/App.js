@@ -1,3 +1,5 @@
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,31 +12,39 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Login from "./pages/Authentication/Login";
 import Signup from "./pages/Authentication/Signup";
 import ContextData from "./contexts/contextData";
-import { useContext } from "react";
 import "./App.css";
 
+const BASE_URL = "http://localhost:8080";
+
 function App() {
-  const { isAuth } = useContext(ContextData);
+  const { userId } = useContext(ContextData);
+  const [user, setUser] = useState(true);
+  const [show, setShow] = useState(true);
 
-  // useEffect(() => {
-  //   console.log(isAuth);
-  //   console.log(userId);
-  // }, [isAuth, userId]);
+  useEffect(() => {
+    if (userId) {
+      fetchUser();
+    }
+  }, [userId]);
 
-  // useEffect(() => {
-  //   console.log(isAuth);
-  //   console.log(userId);
-  // }, [isAuth, userId]);
+  const fetchUser = async () => {
+    const response = await axios.get(`${BASE_URL}/auth/${userId}`);
+    const { user } = response.data;
+    setUser(user[0]);
+  };
 
   return (
     <div className="app">
-      {isAuth ? (
+      {userId ? (
         <Router>
-          <Sidebar />
+          <Sidebar user={user} />
           <Routes>
             <Route path="/form" element={<Form />} />
             <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path="/" element={<Home />} />
+            <Route
+              path="/"
+              element={<Home user={user} show={show} setShow={setShow} />}
+            />
           </Routes>
         </Router>
       ) : (

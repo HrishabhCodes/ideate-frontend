@@ -1,7 +1,6 @@
 .form-container {
   border-radius: 10px;
   width: 100%;
-  padding: 20px 40px;
 }
 
 .wrapper {
@@ -12,7 +11,7 @@
 
 .title-container,
 .tags-container {
-  width: 50%;
+  width: 49%;
 }
 
 .wrapper input[type="text"],
@@ -20,7 +19,6 @@ textarea {
   width: 100%;
   border: none;
   outline: none;
-  width: calc(100% - 30px);
   border-radius: 10px;
   background-color: #cedce969;
   font-family: "Mukta", sans-serif;

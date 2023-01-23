@@ -18,10 +18,9 @@ const Signup = () => {
         email: cred.email,
         password: cred.password,
       });
-
       return navigate("/auth/login");
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 

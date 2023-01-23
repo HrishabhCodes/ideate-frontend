@@ -1,7 +1,6 @@
 .card {
   margin: 35px 0;
   width: 100%;
-  height: 125px;
   border-radius: 10px;
   box-shadow: #0000001a 0px 20px 20px -10px, #0000000a 0px 10px 10px -5px;
   border: 1px solid #c0c0c068;
@@ -31,6 +30,7 @@
   font-weight: 700;
   font-size: 22px;
   color: #3b3b3b;
+  line-height: 24px;
 }
 
 .author {
@@ -38,7 +38,9 @@
   font-size: 13px;
   font-weight: 700;
   color: #1f75ff;
+  margin-top: 3px;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .idea {
@@ -68,19 +70,39 @@
 }
 
 .likes .text {
-  color: #1f75ff;
+  color: #747474;
 }
 
 .dislikes .text {
+  color: #747474;
+}
+
+.liked .text {
+  color: #1f75ff;
+}
+
+.disliked .text {
   color: #9c0000;
 }
 
-.like {
+.like-icon {
+  color: #a2a2a2;
+}
+
+.liked-icon {
   color: #5c9aff;
 }
 
-.dislike {
+.dislike-icon {
+  color: #a2a2a2;
+}
+
+.disliked-icon {
   color: #d53737;
+}
+
+.skeleton {
+  color: #c4c4c4;
 }
 
 .likes,

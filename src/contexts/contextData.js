@@ -1,25 +1,20 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
-const user = localStorage.getItem("userId");
+const userStored = localStorage.getItem("userId");
 
 const ContextData = createContext({
-  userId: user || "",
+  userId: userStored || "",
   setUserId: () => {},
-  isAuth: user ? true : false,
-  setIsAuth: () => {},
 });
 
 export const ContextDataProvider = (props) => {
-  const [userId, setUserId] = useState("");
-  const [isAuth, setIsAuth] = useState();
+  const [userId, setUserId] = useState(userStored || "");
 
   return (
     <ContextData.Provider
       value={{
         userId,
         setUserId,
-        isAuth,
-        setIsAuth,
       }}
     >
       {props.children}

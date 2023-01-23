@@ -1,5 +1,5 @@
 .list-container {
-  padding: 0px 60px;
+  padding: 0px 30px;
   height: calc(100vh - 96px);
   overflow: auto;
 }

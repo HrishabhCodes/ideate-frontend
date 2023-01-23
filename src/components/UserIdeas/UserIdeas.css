@@ -1,7 +1,6 @@
 .container {
   margin-top: 40px;
   width: 100%;
-  padding: 1px 40px;
   border-radius: 10px;
 }
 
@@ -28,7 +27,7 @@
 }
 
 .options {
-  width: 150px;
+  width: 100px;
   height: 100%;
   background-color: #f4f8fd;
   border-left: 1px solid #8080804d;
@@ -66,4 +65,9 @@
 
 .edit i:hover {
   color: #1f75ff;
+}
+
+.no-idea {
+  font-family: "Mukta", sans-serif;
+  margin-top: 10px;
 }
