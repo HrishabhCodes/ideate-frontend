@@ -7,10 +7,12 @@ const BASE_URL = "https://ideate.onrender.com";
 const Signup = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [cred, setCred] = useState({});
 
   const authHandler = async (e) => {
     e.preventDefault();
+    setLoader(true);
 
     try {
       await axios.put(`${BASE_URL}/auth/signup`, {
@@ -80,7 +82,17 @@ const Signup = () => {
             )}
           </div>
 
-          <input className="auth-btn" type="submit" value="signup" />
+          {loader ? (
+            <button className="auth-btn loaders">
+              <div className="loader">
+                <span></span>
+              </div>
+            </button>
+          ) : (
+            <button className="auth-btn" type="submit">
+              Signup
+            </button>
+          )}
         </form>
         <p className="auth-text">
           Already have an account?{" "}

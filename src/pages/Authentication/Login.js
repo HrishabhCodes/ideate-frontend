@@ -7,6 +7,7 @@ import "./Login.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [cred, setCred] = useState({});
   const navigate = useNavigate();
   const dataCtx = useContext(ContextData);
@@ -15,6 +16,7 @@ const Login = () => {
 
   const authHandler = async (e) => {
     e.preventDefault();
+    setLoader(true);
 
     try {
       const response = await axios.post(
@@ -87,7 +89,17 @@ const Login = () => {
             )}
           </Box>
 
-          <input className="auth-btn" type="submit" value="Login" />
+          {loader ? (
+            <button className="auth-btn loaders">
+              <div className="loader">
+                <span></span>
+              </div>
+            </button>
+          ) : (
+            <button className="auth-btn" type="submit">
+              Login
+            </button>
+          )}
         </form>
         <p className="auth-text">
           Don&apos;t have an account?{" "}
