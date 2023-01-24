@@ -8,7 +8,6 @@ const BASE_URL = "http://localhost:8080";
 
 const IdeaForm = ({ fetchUserIdeas }) => {
   const { userId } = useContext(ContextData);
-  const [mode, setMode] = useState("add");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tags, setTags] = useState("");
@@ -31,12 +30,11 @@ const IdeaForm = ({ fetchUserIdeas }) => {
       },
     };
 
-    if (mode === "add") {
-      await axios
-        .post(`${BASE_URL}/idea/create`, data)
-        .then((result) => console.log(result))
-        .catch((e) => console.log(e));
-    }
+    await axios
+      .post(`${BASE_URL}/idea/create`, data)
+      .then((result) => console.log(result))
+      .catch((e) => console.log(e));
+
     fetchUserIdeas();
     setTitle("");
     setTags("");

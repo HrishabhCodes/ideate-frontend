@@ -1,13 +1,14 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import ContextData from "../../contexts/contextData";
+import windowDimensions from "../../hooks/windowDim";
 import "./Sidebar.css";
 
 const Sidebar = ({ user }) => {
   const { setUserId } = useContext(ContextData);
-  // const [show, setShow] = useState(false);
+  const { width } = windowDimensions();
 
   const logout = (e) => {
     e.preventDefault();
@@ -20,7 +21,16 @@ const Sidebar = ({ user }) => {
     <>
       <Box className="sidebar">
         <Box className="menu">
-          <img className="ideate-logo" src="logo.png" alt="ideate" />
+          {width <= 900 ? (
+            <img
+              className="ideate-mobile-logo"
+              src="mobile-logo.png"
+              alt="ideate"
+            />
+          ) : (
+            <img className="ideate-logo" src="logo.png" alt="ideate" />
+          )}
+
           <NavLink to="" className="item home">
             <Box className="icon">
               <i className="fa-solid fa-house"></i>
@@ -38,14 +48,21 @@ const Sidebar = ({ user }) => {
 
         <Box className="profile">
           <Typography className="text user-name">{user.name}</Typography>
-          <Button
-            onClick={logout}
-            className="logout-btn"
-            sx={{ bgcolor: "#1f75ff" }}
-            variant="contained"
-          >
-            Sign Out
-          </Button>
+          {width <= 900 ? (
+            <i
+              onClick={logout}
+              className="mobile-logout fa-solid fa-power-off"
+            ></i>
+          ) : (
+            <Button
+              onClick={logout}
+              className="logout-btn"
+              sx={{ bgcolor: "#1f75ff" }}
+              variant="contained"
+            >
+              Sign Out
+            </Button>
+          )}
         </Box>
       </Box>
     </>

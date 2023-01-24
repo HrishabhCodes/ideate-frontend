@@ -21,6 +21,11 @@
   margin-bottom: 50px;
 }
 
+.ideate-mobile-logo {
+  width: 30px;
+  margin-bottom: 50px;
+}
+
 .item {
   position: relative;
   width: 100%;
@@ -84,6 +89,12 @@
   font-family: "Public Sans", sans-serif !important;
 }
 
+.mobile-logout {
+  color: #1f75ff;
+  text-align: center;
+  font-size: 20px;
+}
+
 @media screen and (max-width: 900px) {
   .sidebar {
     width: 50px !important;
@@ -91,5 +102,9 @@
 
   .sidebar .text {
     display: none;
+  }
+
+  .profile {
+    padding-left: 0px;
   }
 }

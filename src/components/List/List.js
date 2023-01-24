@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Box } from "@mui/system";
 import Card from "../Card/Card";
 import CardSkeleton from "../Card/CardSkeleton";
