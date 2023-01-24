@@ -58,6 +58,7 @@ const Login = () => {
           <br />
           <input
             required
+            placeholder="Email address"
             className="email input"
             name="email"
             type="email"
@@ -72,6 +73,7 @@ const Login = () => {
             <input
               required
               className="password input"
+              placeholder="Password"
               name="password"
               type={showPassword ? "text" : "password"}
               onChange={(e) => setCred({ ...cred, password: e.target.value })}
