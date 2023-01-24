@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dataCtx = useContext(ContextData);
 
-  const BASE_URL = "http://localhost:8080";
+  const BASE_URL = "https://ideate.onrender.com";
 
   const authHandler = async (e) => {
     e.preventDefault();

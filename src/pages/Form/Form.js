@@ -6,7 +6,7 @@ import UserIdeas from "../../components/UserIdeas/UserIdeas";
 import ContextData from "../../contexts/contextData";
 import "./Form.css";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://ideate.onrender.com";
 
 const Form = () => {
   const { userId } = useContext(ContextData);

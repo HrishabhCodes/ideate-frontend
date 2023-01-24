@@ -4,7 +4,7 @@ import axios from "axios";
 import ContextData from "../../contexts/contextData";
 import "./IdeaForm.css";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://ideate.onrender.com";
 
 const IdeaForm = ({ fetchUserIdeas }) => {
   const { userId } = useContext(ContextData);

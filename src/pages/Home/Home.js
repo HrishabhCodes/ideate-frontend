@@ -5,7 +5,7 @@ import Search from "../../components/Search/Search";
 import List from "../../components/List/List";
 import "./Home.css";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://ideate.onrender.com";
 let totalIdeas;
 
 const Home = ({ user }) => {
@@ -16,9 +16,7 @@ const Home = ({ user }) => {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchAllIdeas();
-    }, 500);
+    fetchAllIdeas();
   }, [page]);
 
   const fetchAllIdeas = async () => {

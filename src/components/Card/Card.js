@@ -4,7 +4,7 @@ import CardModal from "../CardModal/CardModal";
 import "./Card.css";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://ideate.onrender.com";
 
 const Card = ({
   title,
